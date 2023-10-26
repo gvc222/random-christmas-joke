@@ -1,0 +1,49 @@
+#root, html, body {
+  padding: 0;
+  margin: 0;
+  /* full height of monitor */
+  height: 100vh;
+  
+}
+
+.app {
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(./assets/IMG_9383.JPG);
+  background-size: cover;
+  background-position: center;
+  font-family: 'Montserrat', 'sans-serif';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card {
+  background-color: #000000db;
+  color: white;
+  width: 40%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 25px;
+  padding: 2%;
+  box-shadow: 10px 10px 10px #333;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  height: 580px;
+}
+
+.button {
+  background: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  background-color: #333;
+  border-radius: 16px 16px 16px 16px;
+  color: white;
+}
