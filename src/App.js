@@ -4,34 +4,44 @@ import axios from 'axios';
 
 class App extends React.Component {
 
-  // const [ advice, setAdvice ] = useState("Click the button to generator random advice");
   state = {
-    advice: ""
+    joke: "",
+    answer: ""
   }
 
   componentDidMount() {
-    this.fetchAdvice();
+    this.fetchJoke();
   }
 
-  fetchAdvice = () => {
-    axios.get(`https://api.adviceslip.com/advice`)
+
+  fetchJoke = () => {
+    // Axios is a library used to send async HTTP requests to REST endpoints
+    axios.get("https://v2.jokeapi.dev/joke/Christmas?blacklistFlags=nsfw,religious,political,racist,sexist,explicit")
       .then((res) => {
-        const { advice } = res.data.slip
-        this.setState({ advice })
+        const joke = res.data.setup
+        const answer = res.data.delivery
+        this.setState({
+          joke: joke,
+          answer: answer
+        })
       })
       .catch((err) => {
         console.log(err);
       })
   }
 render() {
-  // either declare this and use {advice} in the h1 element, or use {this.state.advice} within the h1 element.
-  // const { advice } = this.state
+  // either declare this line and use {joke} in the h1 element, or use {this.state.joke} within the h1 element.
+  // const { joke } = this.state
   return (
     <div className="app">
       <div className="card">
-        <h1 className='header'>{this.state.advice}</h1>
-        <button className="button" onClick={this.fetchAdvice}>Generate Advice</button>
+        <h3 className='header'>{this.state.joke}</h3>
+        <h5 className="answer">{this.state.answer}</h5>
+        <button className="button" onClick={this.fetchJoke}>
+          Tell me a Christmas Joke!
+        </button>
       </div>
+      
     </div>
 
   )
